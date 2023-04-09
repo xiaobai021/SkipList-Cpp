@@ -209,4 +209,3 @@ gdb 【可执行文件】 【core文件】
 20	        skiplist.insert_element(rand()%TEST_COUNT,"a");
 
 ```
-
