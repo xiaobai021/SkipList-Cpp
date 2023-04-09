@@ -33,7 +33,7 @@ level 数组中的每一个元素代表跳表的一层，也就是由 zskiplistL
 
 如果上面两个条件都不满足，或者下一个节点为空时，跳表就会使用目前遍历到的节点的 level 数组里的下一层指针，然后沿着下一层指针继续查找，这就相当于跳到了下一层接着查找。
 
-![image-20230409141608153](home\whk\projects\SkipList\image\image-20230409141608153.png)
+![image-20230409141608153](image\image-20230409141608153.png)
 
 #### 查找元素![image-20230409143457151](C:\Users\kwh\AppData\Roaming\Typora\typora-user-images\image-20230409143457151.png)
 
