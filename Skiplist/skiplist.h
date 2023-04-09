@@ -165,7 +165,7 @@ int Skiplist<K,V>::insert_element(const K key,const V value){
 
         Node<K,V>*inserted_node=create_node(key,value,random_level);
 
-        for(int i=0;i<=get_random_level();i++){
+        for(int i=0;i<=random_level;i++){
             inserted_node->forward[i]=update[i]->forward[i];
             update[i]->forward[i]=inserted_node;
         }
