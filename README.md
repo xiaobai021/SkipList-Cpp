@@ -33,13 +33,15 @@ level 数组中的每一个元素代表跳表的一层，也就是由 zskiplistL
 
 如果上面两个条件都不满足，或者下一个节点为空时，跳表就会使用目前遍历到的节点的 level 数组里的下一层指针，然后沿着下一层指针继续查找，这就相当于跳到了下一层接着查找。
 
-![image-20230409141608153](image\image-20230409141608153.png)
+![tu](README.assets/tu.png)
 
-#### 查找元素![image-20230409143457151](C:\Users\kwh\AppData\Roaming\Typora\typora-user-images\image-20230409143457151.png)
+#### 查找元素
+
+![search](README.assets/search.png)
 
 #### 插入元素
 
-![image-20230409144111989](C:\Users\kwh\AppData\Roaming\Typora\typora-user-images\image-20230409144111989.png)
+![insert](README.assets/insert.png)
 
 跳表的相邻两层的节点数量的比例会影响跳表的查询性能。Redis 则采用一种巧妙的方法是，**跳表在创建节点的时候，随机生成每个节点的层数**，并没有严格维持相邻两层的节点数量比例为 2 : 1 的情况。
 
@@ -80,7 +82,7 @@ for (int i = 0; i <= random_level; i++) {
 
 #### 删除元素
 
-![image-20230409144624662](C:\Users\kwh\AppData\Roaming\Typora\typora-user-images\image-20230409144624662.png)
+![delete](README.assets/delete.png)
 
 ```c++
 Node<K, V> *update[_max_level+1];//update数组 用于保存 删除节点前面的节点 ，用于删除节点后的指向链接，步骤和插入节点类似
@@ -107,13 +109,13 @@ Node<K, V> *update[_max_level+1];//update数组 用于保存 删除节点前面�
 
 采用随机插入数据测试：
 
-![image-20230409151024074](C:\Users\kwh\AppData\Roaming\Typora\typora-user-images\image-20230409151024074.png)
+![insert1](README.assets/insert1.png)
 
 每秒可处理写请求数（QPS）: 6.53w
 
 #### 查询操作
 
-![image-20230409151914809](C:\Users\kwh\AppData\Roaming\Typora\typora-user-images\image-20230409151914809.png)
+![get](README.assets/get.png)
 
 每秒可处理写请求数（QPS）: 5.064w
 
